@@ -1,3 +1,170 @@
+let articlesEl =document.getElementById("articleGrid");
+
+const articlesData = [
+    {
+      id: 1,
+      title: "Deadline đầu tiên của kỳ học",
+      entries: "Nhật ký học tập",
+      content: "Hôm nay mình vừa nộp xong bài tập lớn. Mệt nhưng thấy rất nhẹ nhõm!",
+      mood: "Căng thẳng",
+      status: "Riêng tư",
+      image: "image1.jpg",
+      date: "2025-02-23",
+    },
+    {
+      id: 2,
+      title: "Cà phê chiều chủ nhật",
+      entries: "Nhật ký trải nghiệm - học qua đời sống",
+      content: "Ngồi một mình trong quán quen, nghe nhạc lofi và viết vài dòng nhật ký...",
+      mood: "Thư giãn",
+      status: "Công khai",
+      image: "image2.jpg",
+      date: "2025-03-15",
+    },
+    {
+      id: 3,
+      title: "A Productive Day at Work",
+      entries: "Daily Journal",
+      content: "Today was a really productive day at work. I managed to finish a report ahead of schedule and received positive feedback from my manager.",
+      mood: "Productive",
+      status: "Public",
+      image: "../PNJ/Image (1).png",
+      date: "2025-02-25",
+      category: "Daily Journal",
+      categoryColor: "", // You can add color information if needed
+    },
+    {
+      id: 4,
+      title: "My First Job Interview Experience",
+      entries: "Work & Career",
+      content: "I had my first job interview today! I was nervous at first, but as the conversation went on, I felt more confident.",
+      mood: "Nervous but hopeful",
+      status: "Public",
+      image: "../PNJ/Image (2).png",
+      date: "2025-02-24",
+      category: "Work & Career",
+      categoryColor: "blue",
+    },
+    {
+      id: 5,
+      title: "Overthinking Everything",
+      entries: "Personal Thoughts",
+      content: "Lately, I have been overthinking everything, from small decisions to bigger life choices. I know I should trust myself.",
+      mood: "Anxious",
+      status: "Public",
+      image: "../PNJ/Image (4).png",
+      date: "2025-02-23",
+      category: "Personal Thoughts",
+      categoryColor: "green",
+    },
+    {
+      id: 6,
+      title: "How collaboration makes us better designers",
+      entries: "Work & Career",
+      content: "Collaboration can make our teams stronger, and our individual designs better.",
+      mood: "Informative",
+      status: "Public",
+      image: "../PNJ/Image (6).png",
+      date: "2025-02-16",
+      category: "Work & Career",
+      categoryColor: "blue",
+    },
+    {
+      id: 7,
+      title: "Our top 10 Javascript frameworks to use",
+      entries: "Work & Career",
+      content: "JavaScript frameworks make development easy with extensive features and functionalities.",
+      mood: "Informative",
+      status: "Public",
+      image: "../PNJ/Image (7).png",
+      date: "2025-02-15",
+      category: "Work & Career",
+      categoryColor: "blue",
+    },
+    {
+      id: 8,
+      title: "Podcast: Creating a better CX Community",
+      entries: "Emotions & Feelings",
+      content: "Starting a community doesn't need to be complicated, but how do you get started?",
+      mood: "Insightful",
+      status: "Public",
+      image: "../PNJ/Image (8).png",
+      date: "2025-02-05",
+      category: "Emotions & Feelings",
+      categoryColor: "purple",
+    },
+  ];
+  
+  console.log(articlesData);
+
+function renderArticles(list = articlesData) {
+    // let data = '';
+    // list.forEach((article) =>{
+    //     data += `
+    //      <div class="main-blog-card">
+    //             <img src="${article.image}" alt="${article.title}" class="main-blog-card-img">
+    //             <div class="main-blog-card-content">
+    //                 <div class="main-blog-card-date">Date: ${article.date}</div>
+    //                 <div class="main-blog-card-title">${article.title}</div>
+    //                 <div class="main-blog-card-desc">${article.content}</div>
+    //                 <div class="main-blog-card-category">
+    //                     <span class="main-category-badge main-category-${article.categoryColor}">${article.category}</span>
+    //                 </div>
+    //             </div>
+    //         </div>
+    //     `;
+    // })
+
+
+    
+
+    // sử dụng reduce để tạo chuỗi HTML
+  //   let data = list.reduce((temp,article) =>{
+  //     return temp + `
+  //      <div class="main-blog-card">
+  //             <img src="${article.image}" alt="${article.title}" class="main-blog-card-img">
+  //             <div class="main-blog-card-content">
+  //                 <div class="main-blog-card-date">Date: ${article.date}</div>
+  //                 <div class="main-blog-card-title">${article.title}</div>
+  //                 <div class="main-blog-card-desc">${article.content}</div>
+  //                 <div class="main-blog-card-category">
+  //                     <span class="main-category-badge main-category-${article.categoryColor}">${article.category}</span>
+  //                 </div>
+  //             </div>
+  //         </div>
+  //     `;
+  // },'');
+
+
+
+
+  // sử dụng map để tạo chuỗi HTML
+  let data = list.map((article) =>{
+        return `
+         <div class="main-blog-card">
+                <img src="${article.image}" alt="${article.title}" class="main-blog-card-img">
+                <div class="main-blog-card-content">
+                    <div class="main-blog-card-date">Date: ${article.date}</div>
+                    <div class="main-blog-card-title">${article.title}</div>
+                    <div class="main-blog-card-desc">${article.content}</div>
+                    <div class="main-blog-card-category">
+                        <span class="main-category-badge main-category-${article.categoryColor}">${article.category}</span>
+                    </div>
+                </div>
+            </div>
+        `;
+    });
+    console.log(data.join(''));
+    articlesEl.innerHTML = data.join('');
+}
+
+renderArticles();
+
+
+
+
+
+
 document.addEventListener('DOMContentLoaded', function() {
     const avatarBtn = document.getElementById('avatarBtn');
     const dropdownMenu = document.getElementById('dropdownMenu');
@@ -26,60 +193,6 @@ document.addEventListener('DOMContentLoaded', function() {
             if (e.target.classList.contains('add-article-backdrop')) {
                 addArticleModal.style.display = 'none';
             }
-        });
-    }
-
-    // Thêm chức năng thêm bài viết
-    const addBtn = document.querySelector('.add-article-submit-btn');
-    if (addBtn) {
-        addBtn.addEventListener('click', function() {
-            // Lấy dữ liệu từ form
-            const title = document.getElementById('articleTitle').value.trim();
-            const categories = document.getElementById('articleCategories').value.trim();
-            const mood = document.querySelector('.add-article-form-group input[type="text"].add-article-input-bg:not(#articleCategories)')?.value.trim() || '';
-            const content = document.getElementById('articleContent').value.trim();
-            const status = document.getElementById('statusPublic').checked ? 'public' : 'private';
-            // Validate đơn giản
-            if (!title || !categories || !content) {
-                alert('Vui lòng nhập đầy đủ thông tin!');
-                return;
-            }
-            // Tạo ngày hiện tại
-            const today = new Date();
-            const dateStr = today.toISOString().slice(0,10);
-            // Chọn màu badge theo category
-            let badgeClass = '';
-            if (/work|career/i.test(categories)) badgeClass = 'main-category-blue';
-            else if (/personal/i.test(categories)) badgeClass = 'main-category-green';
-            else if (/emotion|feeling/i.test(categories)) badgeClass = 'main-category-purple';
-            // Tạo thẻ bài viết mới
-            const card = document.createElement('div');
-            card.className = 'main-blog-card';
-            card.innerHTML = `
-                <img src="../PNJ/Image (1).png" alt="Blog" class="main-blog-card-img">
-                <div class="main-blog-card-content">
-                    <div class="main-blog-card-date">Date: ${dateStr}</div>
-                    <div class="main-blog-card-title">${title}</div>
-                    <div class="main-blog-card-desc">${content}</div>
-                    <div class="main-blog-card-category">
-                        <span class="main-category-badge ${badgeClass}">${categories}</span>
-                    </div>
-                </div>
-            `;
-            // Thêm vào đầu lưới bài viết
-            const grid = document.querySelector('.main-blog-grid');
-            if (grid) {
-                grid.prepend(card);
-            }
-            // Đóng modal và reset form
-            addArticleModal.style.display = 'none';
-            document.getElementById('articleTitle').value = '';
-            document.getElementById('articleCategories').value = '';
-            if (document.querySelector('.add-article-form-group input[type="text"].add-article-input-bg:not(#articleCategories)'))
-                document.querySelector('.add-article-form-group input[type="text"].add-article-input-bg:not(#articleCategories)').value = '';
-            document.getElementById('articleContent').value = '';
-            document.getElementById('statusPublic').checked = true;
-            document.getElementById('statusPrivate').checked = false;
         });
     }
 });

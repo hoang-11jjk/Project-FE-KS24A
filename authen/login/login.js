@@ -7,7 +7,6 @@ document.querySelector('.login-form').addEventListener('submit', function(e) {
     const email = document.querySelector('input[type="email"]').value.trim();
     const password = document.querySelector('input[type="password"]').value;
 
-    // Tìm user phù hợp
     const user = users.find(u => u.email === email && u.password === password);
 
     if (user) {
@@ -17,7 +16,7 @@ document.querySelector('.login-form').addEventListener('submit', function(e) {
         } else {
             alert('Đăng nhập thành công!');
             localStorage.setItem('currentUser', JSON.stringify(user));
-            window.location.href = '../../home-page/index.html'; // Chuyển hướng đến trang home
+            window.location.href = '../../home-page/index.html';
         }
             
     } else {
