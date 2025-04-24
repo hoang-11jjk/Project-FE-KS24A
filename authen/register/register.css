@@ -1,0 +1,317 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: radial-gradient(33.85% 81.86% at 0% 0%, #354F7E 15%, #2D446C 35%, #1E2D48 75%, #1D2B44 80%, rgba(0, 0, 0, 0) 100%), 
+                radial-gradient(65.1% 157.43% at 100% 100%, #4466A2 15%, #2D446C 35%, #1E2D48 75%, #1D2B44 80%, rgba(0, 0, 0, 0) 100%), #172236;
+    width: 100vw;
+    min-height: 100vh; /* Đổi height thành min-height để tránh tràn */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+    max-width: 1200px;
+    flex-wrap: wrap; /* Cho phép wrap trên màn hình nhỏ */
+}
+
+.welcome-section {
+    flex: 1;
+    text-align: left;
+}
+
+.welcome-section h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+}
+
+.welcome-section p {
+    font-size: 1rem;
+    margin-top: 0;
+}
+
+.form-container {
+    box-sizing: border-box;
+    width: 492px;
+    min-height: 554px; 
+    margin-right: 10%;
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    backdrop-filter: blur(12.5px);
+    border-radius: 4px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    width: 394px;
+    min-height: 456px; 
+    margin-left: 80px;
+    margin-top: 60px;
+    
+}
+
+.form-name {
+    display: flex;
+    gap: 10px;
+    justify-content: space-between;
+}
+
+input {
+    width: 100%; /* Đổi width để linh hoạt hơn */
+    max-width: 366px; /* Giới hạn tối đa */
+    height: 20px;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+input[name="first-name"],
+input[name="last-name"] {
+    max-width: 163px; /* Đổi width thành max-width */
+    height: 20px;
+    margin-bottom: 15px;
+}
+
+label {
+    font-size: 0.8rem;
+    color: #555;
+    margin-top: -10px;
+    margin-bottom: 15px;
+    display: block;
+}
+
+button {
+    box-sizing: border-box;
+    width: 80.2px;
+    height: 38px;
+    background: #0D6EFD;
+    border: 1px solid #0D6EFD;
+    border-radius: 4px;
+    color: white;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+p {
+    width: 294px;
+    height: 23px;
+    font-family: 'Segoe UI';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 24px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: #ffffff;
+}
+
+a {
+    color: #DC3545;
+    font-weight: bold;
+    text-decoration: none;
+    margin-left: 4px;
+}
+
+a:hover {
+    text-decoration: underline;
+    color: #8962a0;
+}
+
+.gadient {
+    pointer-events: none;
+    position: absolute;
+    height: 543px;
+    left: 56.67%;
+    right: 6.77%;
+    top: calc(50% - 543px/2 - 18.5px);
+}
+
+.gadient-1 {
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    right: -170px;
+    bottom: -90px;
+    background: radial-gradient(70.71% 70.71% at 50% 50%, #44006B 0%, #AD1FFF 100%);
+    border-radius: 207px 93px 244.5px 55.5px;
+}
+
+.gadient-2 {
+    position: absolute;
+    width: 220px;
+    height: 213px;
+    left: -442px;
+    top: -150px;
+    background: radial-gradient(70.71% 70.71% at 50% 50%, #44006B 0%, #AD1FFF 100%);
+    border-radius: 110px;
+}
+
+
+
+
+@media (max-width: 480px) {
+    body {
+        padding: 10px;
+        min-height: 100vh;
+    }
+
+    .container {
+        flex-direction: column;
+        width: 100%;
+        gap: 20px;
+    }
+
+    .welcome-section h1 {
+        font-size: 1.8rem;
+    }
+
+    .welcome-section p {
+        font-size: 0.9rem;
+    }
+
+    .form-container {
+        width: 100%;
+        margin-right: 0;
+        margin-top: 20px;
+        min-height: auto;
+        padding: 10px;
+    }
+
+    form {
+        width: 100%;
+        margin: 20px 0;
+    }
+
+    input {
+        max-width: 100%;
+        font-size: 0.9rem;
+        padding: 8px;
+    }
+
+    input[name="first-name"],
+    input[name="last-name"] {
+        max-width: 100%; 
+    }
+
+    label {
+        font-size: 0.7rem;
+    }
+
+    button {
+        width: 100%;
+        height: 40px;
+        font-size: 1rem;
+    }
+
+    p {
+        width: 100%;
+        font-size: 0.9rem;
+    }
+
+    .gadient {
+        display: none; 
+    }
+}
+
+/* Từ 481px đến 768px (mobile lớn và tablet nhỏ) */
+@media (min-width: 481px) and (max-width: 768px) {
+    body {
+        padding: 20px;
+    }
+
+    .container {
+        flex-direction: column;
+        width: 100%;
+        gap: 20px;
+    }
+
+    .welcome-section h1 {
+        font-size: 2.2rem;
+    }
+
+    .welcome-section p {
+        font-size: 1rem;
+    }
+
+    .form-container {
+        width: 90%;
+        margin-right: 0;
+        margin-top: 20px;
+        min-height: auto;
+    }
+
+    form {
+        width: 90%;
+        margin: 30px auto;
+    }
+
+    input {
+        max-width: 100%;
+        font-size: 1rem;
+    }
+
+    input[name="first-name"],
+    input[name="last-name"] {
+        max-width: 48%; /* Giữ 2 cột trên tablet nhỏ */
+    }
+
+    label {
+        font-size: 0.8rem;
+    }
+
+    button {
+        width: 100%;
+        height: 40px;
+    }
+
+    p {
+        width: 100%;
+        font-size: 1rem;
+    }
+
+    .gadient {
+        opacity: 0.5; /* Giảm opacity gradient để không làm rối giao diện */
+    }
+}
+
+/* Từ 769px đến 1024px (tablet lớn và laptop nhỏ) */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .container {
+        width: 90%;
+        flex-direction: row; /* Giữ layout ngang */
+        gap: 20px;
+    }
+
+    .welcome-section h1 {
+        font-size: 2.5rem;
+    }
+
+    .form-container {
+        width: 450px;
+        margin-right: 5%;
+    }
+
+    form {
+        width: 85%;
+    }
+
+    input {
+        max-width: 100%;
+    }
+
+    input[name="first-name"],
+    input[name="last-name"] {
+        max-width: 48%;
+    }
+}

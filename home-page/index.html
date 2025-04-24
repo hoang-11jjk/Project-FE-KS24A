@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>RIKKEI_EDU_BLOG</title>
+    <link rel="stylesheet" href="home.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-left">
+            <img src="logo.png" alt="Logo" class="logo">
+            <span class="site-title">RIKKEI_EDU_BLOG</span>
+        </div>
+        <div class="header-center">
+            <input type="text" class="search-input" placeholder="Search for articles">
+            <button class="search-btn"><span>&#128269;</span></button>
+        </div>
+        <div class="header-right">
+            <img src="avatar.jpg" alt="Avatar" class="avatar" id="avatarBtn">
+            <div class="dropdown-menu" id="dropdownMenu">
+                <div class="dropdown-profile">
+                    <img src="avatar.jpg" alt="Avatar" class="dropdown-avatar">
+                    <div>
+                        <div class="dropdown-name">Rikkei</div>
+                        <div class="dropdown-email">rikkei@gmail.com</div>
+                    </div>
+                    <span class="status-dot"></span>
+                </div>
+                <div class="dropdown-links">
+                    <a href="#">View profile</a>
+                    <a href="#">Update profile picture</a>
+                    <a href="#">Change password</a>
+                </div>
+                <div class="dropdown-logout">
+                    <a href="../authen/login/index.html">Log out</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main content -->
+    <main>
+        <!-- Recent blog posts -->
+        <section>
+            <h2 class="main-section-title">Recent blog posts</h2>
+            <div class="main-featured-row">
+                <div class="main-featured-large">
+                    <img src="../PNJ/Image (1).png" alt="Blog main" class="main-featured-img">
+                    <div class="main-featured-date">Date: 2025-02-25</div>
+                    <div class="main-featured-title">A Productive Day at Work</div>
+                    <div class="main-featured-desc">Today was a really productive day at work. I managed to finish a report ahead of schedule and received positive feedback from my manager.</div>
+                    <div class="main-featured-category">
+                        <span class="main-category-badge">Daily Journal</span>
+                    </div>
+                </div>
+                <div class="main-featured-side">
+                    <div class="main-featured-side-item">
+                        <img src="../PNJ/Image (2).png" alt="Blog" class="main-featured-side-img">
+                        <div>
+                            <div class="main-featured-side-date">Date: 2025-02-24</div>
+                            <div class="main-featured-side-title">My First Job Interview Experience</div>
+                            <div class="main-featured-side-desc">I had my first job interview today! I was nervous at first, but as the conversation went on, I felt more confident.</div>
+                            <div class="main-featured-side-category">
+                                <span class="main-category-badge main-category-blue">Work & Career</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="main-featured-side-item">
+                        <img src="../PNJ/Image (4).png" alt="Blog" class="main-featured-side-img" style="margin-right: 15px;">
+                        <div>
+                            <div class="main-featured-side-date">Date: 2025-02-23</div>
+                            <div class="main-featured-side-title">Overthinking Everything</div>
+                            <div class="main-featured-side-desc">Lately, I have been overthinking everything, from small decisions to bigger life choices. I know I should trust myself.</div>
+                            <div class="main-featured-side-category">
+                                <span class="main-category-badge main-category-green">Personal Thoughts</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Add new article button -->
+        <div class="main-add-article">
+            <span class="main-add-article-text">ADD NEW ARTICLE</span>
+            <span class="main-add-article-icon">&#8853;</span>
+        </div>
+
+        <!-- Blog categories -->
+        <div class="main-categories">
+            <span class="main-category-selected">All blog posts</span>
+            <span class="main-category">Daily Journal</span>
+            <span class="main-category">Work & Career</span>
+            <span class="main-category">Personal Thoughts</span>
+            <span class="main-category">Emotions & Feelings</span>
+        </div>
+
+        <!-- Blog post grid -->
+        <div class="main-blog-grid">
+            <!-- Blog card 1 -->
+            <div class="main-blog-card">
+                <img src="../PNJ/Image (1).png" alt="Blog" class="main-blog-card-img">
+                <div class="main-blog-card-content">
+                    <div class="main-blog-card-date">Date: 2025-02-25</div>
+                    <div class="main-blog-card-title">A Productive Day at Work</div>
+                    <div class="main-blog-card-desc">Today was a really productive day at work. I managed to finish a report ahead of schedule and received positive feedback from my manager.</div>
+                    <div class="main-blog-card-category">
+                        <span class="main-category-badge">Daily Journal</span>
+                    </div>
+                </div>
+            </div>
+            <!-- Blog card 2 -->
+            <div class="main-blog-card">
+                <img src="../PNJ/Image (2).png" alt="Blog" class="main-blog-card-img">
+                <div class="main-blog-card-content">
+                    <div class="main-blog-card-date">Date: 2025-02-24</div>
+                    <div class="main-blog-card-title">My First Job Interview Experience</div>
+                    <div class="main-blog-card-desc">I had my first job interview today! I was nervous at first, but as the conversation went on, I felt more confident.</div>
+                    <div class="main-blog-card-category">
+                        <span class="main-category-badge main-category-blue">Work & Career</span>
+                    </div>
+                </div>
+            </div>
+            <!-- Blog card 3 -->
+            <div class="main-blog-card">
+                <img src="../PNJ/Image (4).png" alt="Blog" class="main-blog-card-img">
+                <div class="main-blog-card-content">
+                    <div class="main-blog-card-date">Date: 2025-02-23</div>
+                    <div class="main-blog-card-title">Overthinking Everything</div>
+                    <div class="main-blog-card-desc">Lately, I have been overthinking everything, from small decisions to bigger life choices. I know I should trust myself.</div>
+                    <div class="main-blog-card-category">
+                        <span class="main-category-badge main-category-green">Personal Thoughts</span>
+                    </div>
+                </div>
+            </div>
+            <!-- Blog card 4 -->
+            <div class="main-blog-card">
+                <img src="../PNJ/Image (6).png" alt="Blog" class="main-blog-card-img">
+                <div class="main-blog-card-content">
+                    <div class="main-blog-card-date">Date: 2025-02-16</div>
+                    <div class="main-blog-card-title">How collaboration makes us better designers</div>
+                    <div class="main-blog-card-desc">Collaboration can make our teams stronger, and our individual designs better.</div>
+                    <div class="main-blog-card-category">
+                        <span class="main-category-badge main-category-blue">Work & Career</span>
+                    </div>
+                </div>
+            </div>
+            <!-- Blog card 5 -->
+            <div class="main-blog-card">
+                <img src="../PNJ/Image (7).png" alt="Blog" class="main-blog-card-img">
+                <div class="main-blog-card-content">
+                    <div class="main-blog-card-date">Date: 2025-02-15</div>
+                    <div class="main-blog-card-title">Our top 10 Javascript frameworks to use</div>
+                    <div class="main-blog-card-desc">JavaScript frameworks make development easy with extensive features and functionalities.</div>
+                    <div class="main-blog-card-category">
+                        <span class="main-category-badge main-category-blue">Work & Career</span>
+                    </div>
+                </div>
+            </div>
+            <!-- Blog card 6 -->
+            <div class="main-blog-card">
+                <img src="../PNJ/Image (8).png" alt="Blog" class="main-blog-card-img">
+                <div class="main-blog-card-content">
+                    <div class="main-blog-card-date">Date: 2025-02-05</div>
+                    <div class="main-blog-card-title">Podcast: Creating a better CX Community</div>
+                    <div class="main-blog-card-desc">Starting a community doesn't need to be complicated, but how do you get started?</div>
+                    <div class="main-blog-card-category">
+                        <span class="main-category-badge main-category-purple">Emotions & Feelings</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="add-article-form" id="addArticleModal" style="display: none;">
+            <!-- CSS for this modal moved to home.css -->
+            <div class="add-article-backdrop"></div>
+            <div class="add-article-content">
+                <button class="add-article-close" id="closeAddArticle" title="Close">&times;</button>
+                <h2 class="add-article-title">📝 Add New Article</h2>
+                <form>
+                    <div class="add-article-form-group">
+                        <label class="add-article-label" for="articleTitle">Title:</label><br>
+                        <input type="text" id="articleTitle" class="add-article-input">
+                    </div>
+                    <div class="add-article-form-group">
+                        <label class="add-article-label" for="articleCategories">Article Categories:</label><br>
+                        <input type="text" id="articleCategories" class="add-article-input add-article-input-bg">
+                    </div>
+                    <div class="add-article-form-group">
+                        <label class="add-article-label">Mood:</label><br>
+                        <input type="text"  class="add-article-input add-article-input-bg">
+                    </div>
+                    <div class="add-article-form-group">
+                        <label class="add-article-label" for="articleContent">Content:</label><br>
+                        <textarea id="articleContent" rows="4" class="add-article-input"></textarea>
+                    </div>
+                    <div class="add-article-form-group" style="display: flex; flex-direction: row;">
+                        <label class="add-article-label">Status</label>
+                        <input type="radio" name="status" id="statusPublic" checked class="add-article-radio"> <label for="statusPublic">public</label>
+                        <input type="radio" name="status" id="statusPrivate" class="add-article-radio"> <label for="statusPrivate">private</label>
+                    </div>
+                    <div class="add-article-form-group">
+                        <div class="add-article-upload-box">
+                            <div class="add-article-upload-icon">&#8682;</div>
+                            <div>Browse and chose the files you want<br>to upload from your computer</div>
+                        </div>
+                    </div>
+                    <button type="button" class="add-article-submit-btn">Add</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Pagination -->
+        <div class="main-pagination">
+            <button class="main-pagination-btn main-pagination-prev">&lt; Previous</button>
+            <button class="main-pagination-btn main-pagination-active">1</button>
+            <button class="main-pagination-btn">2</button>
+            <button class="main-pagination-btn">3</button>
+            <span class="main-pagination-ellipsis">...</span>
+            <button class="main-pagination-btn">8</button>
+            <button class="main-pagination-btn">9</button>
+            <button class="main-pagination-btn">10</button>
+            <button class="main-pagination-btn main-pagination-next">Next &gt;</button>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-section">
+                <div class="footer-title">MY BLOG</div>
+                <div class="footer-about">
+                    <b>About Rareblocks</b>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nullam dictum aliquet accumsan porta lectus ridiculus in mattis. Netus sodales in volutpat ullamcorper amet adipiscing fermentum.</p>
+                </div>
+            </div>
+            <div class="footer-section">
+                <div class="footer-list-title">Company</div>
+                <ul>
+                    <li>About</li>
+                    <li>Features</li>
+                    <li>Works</li>
+                    <li>Career</li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <div class="footer-list-title">Help</div>
+                <ul>
+                    <li>Customer Support</li>
+                    <li>Delivery Details</li>
+                    <li>Terms & Conditions</li>
+                    <li>Privacy Policy</li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <div class="footer-list-title">Resources</div>
+                <ul>
+                    <li>Free eBooks</li>
+                    <li>Development Tutorial</li>
+                    <li>How to - Blog</li>
+                    <li>Youtube Playlist</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-social">
+            <span>&#x1F426;</span>
+            <span>&#x1F426;</span>
+            <span>&#x1F426;</span>
+            <span>&#x1F426;</span>
+        </div>
+    </footer>
+    <script src="home.js"></script>
+</body>
+</html>
