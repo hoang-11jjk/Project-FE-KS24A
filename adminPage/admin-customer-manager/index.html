@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Customer Manager</title>
+    <link rel="stylesheet" href="admin-customer-manager.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="top-header">
+        <div class="header-right">
+            <div class="notification-icon">
+                <i class="far fa-envelope"></i>
+                <span class="notification-badge">2</span>
+            </div>
+            <div class="notification-icon">
+                <i class="far fa-bell"></i>
+            </div>
+            <div class="user-avatar">
+                <img src="../../PNJ/avt.jpg" alt="User Profile">
+            </div>
+        </div>
+    </div>
+
+    <div class="sidebar">
+        <div class="menu-item">
+            <i class="fas fa-users"></i>
+            <span>Manage Users</span>
+        </div>
+        <div class="menu-item">
+            <i class="fas fa-table-list"></i>
+            <span>Manage Entries</span>
+        </div>
+        <div class="menu-item">
+            <i class="fas fa-book"></i>
+            <span>Manage Article</span>
+        </div>
+        <div class="menu-item">
+            <i class="fas fa-arrow-right-from-bracket"></i>
+            <span>Log out</span>
+        </div>
+    </div>
+
+    <div class="main-content">
+        <div class="header">
+            <div class="title">
+                <h2>Team members</h2>
+                <span class="user-count">100 users</span>
+            </div>
+            <div class="search-container">
+                <i class="fas fa-search"></i>
+                <input type="text" placeholder="Search user">
+            </div>
+        </div>
+
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Status <i class="fas fa-sort-down"></i></th>
+                        <th>Email address</th>
+                        <th>
+                            <span>active</span>
+                            <span class="sort-text">sort by name</span>
+                            <i class="fas fa-sort"></i>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- User rows will be populated dynamically -->
+                </tbody>
+            </table>
+        </div>
+
+        <div class="pagination">
+            <button class="prev-btn"><i class="fas fa-chevron-left"></i> Previous</button>
+            <div class="page-numbers">
+                <span class="active">1</span>
+                <span>2</span>
+                <span>3</span>
+                <span>...</span>
+                <span>8</span>
+                <span>9</span>
+                <span>10</span>
+            </div>
+            <button class="next-btn">Next <i class="fas fa-chevron-right"></i></button>
+        </div>
+    </div>
+
+    <script src="admin-customer-manager.js"></script>
+</body>
+</html>

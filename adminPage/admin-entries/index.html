@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Entries Manager</title>
+    <link rel="stylesheet" href="admin-entries.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="top-header">
+        <div class="header-right">
+            <div class="notification-icon">
+                <i class="far fa-envelope"></i>
+                <span class="notification-badge">2</span>
+            </div>
+            <div class="notification-icon">
+                <i class="far fa-bell"></i>
+            </div>
+            <div class="user-avatar">
+                <img src="../../PNJ/avt.jpg" alt="User Profile">
+            </div>
+        </div>
+    </div>
+
+    <div class="sidebar">
+        <div class="menu-item">
+            <i class="fas fa-users"></i>
+            <span>Manage Users</span>
+        </div>
+        <div class="menu-item">
+            <i class="fas fa-table-list"></i>
+            <span>Manage Entries</span>
+        </div>
+        <div class="menu-item">
+            <i class="fas fa-book"></i>
+            <span>Manage Article</span>
+        </div>
+        <div class="menu-item">
+            <i class="fas fa-arrow-right-from-bracket"></i>
+            <span>Log out</span>
+        </div>
+    </div>
+
+    <div class="main-content">
+        <div class="manage-categories">
+            <h2>📁 Manage Categories</h2>
+            <div class="category-form">
+                <div class="form-group">
+                    <label>Category Name:</label>
+                    <input type="text" class="category-input" placeholder="Enter category name">
+                </div>
+                <button class="add-category-btn">Add Category</button>
+            </div>
+
+            <div class="category-list">
+                <h3>📋 Category List</h3>
+                <table class="category-table">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Category Name</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Categories will be added here dynamically -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script src="admin-entries.js"></script>
+</body>
+</html>
