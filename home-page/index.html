@@ -1,8 +1,7 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>RIKKEI_EDU_BLOG</title>
+    <title>Trang chủ</title>
     <link rel="stylesheet" href="home.css">
 </head>
 <body>
@@ -84,7 +83,7 @@
         <!-- Add new article button -->
         <div class="main-add-article">
             <span class="main-add-article-text">ADD NEW ARTICLE</span>
-            <span class="main-add-article-icon">&#8853;</span>
+            <span class="main-add-article-icon">+</span>
         </div>
 
         <!-- Blog categories -->
@@ -98,112 +97,75 @@
 
         <!-- Blog post grid -->
         <div class="main-blog-grid" id="articleGrid">
-            <!-- <div class="main-blog-card">
-                <img src="../PNJ/Image (1).png" alt="Blog" class="main-blog-card-img">
-                <div class="main-blog-card-content">
-                    <div class="main-blog-card-date">Date: 2025-02-25</div>
-                    <div class="main-blog-card-title">A Productive Day at Work</div>
-                    <div class="main-blog-card-desc">Today was a really productive day at work. I managed to finish a report ahead of schedule and received positive feedback from my manager.</div>
-                    <div class="main-blog-card-category">
-                        <span class="main-category-badge">Daily Journal</span>
-                    </div>
-                </div>
-            </div>
-            <div class="main-blog-card">
-                <img src="../PNJ/Image (2).png" alt="Blog" class="main-blog-card-img">
-                <div class="main-blog-card-content">
-                    <div class="main-blog-card-date">Date: 2025-02-24</div>
-                    <div class="main-blog-card-title">My First Job Interview Experience</div>
-                    <div class="main-blog-card-desc">I had my first job interview today! I was nervous at first, but as the conversation went on, I felt more confident.</div>
-                    <div class="main-blog-card-category">
-                        <span class="main-category-badge main-category-blue">Work & Career</span>
-                    </div>
-                </div>
-            </div>
-            <div class="main-blog-card">
-                <img src="../PNJ/Image (4).png" alt="Blog" class="main-blog-card-img">
-                <div class="main-blog-card-content">
-                    <div class="main-blog-card-date">Date: 2025-02-23</div>
-                    <div class="main-blog-card-title">Overthinking Everything</div>
-                    <div class="main-blog-card-desc">Lately, I have been overthinking everything, from small decisions to bigger life choices. I know I should trust myself.</div>
-                    <div class="main-blog-card-category">
-                        <span class="main-category-badge main-category-green">Personal Thoughts</span>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="main-blog-card">
-                <img src="../PNJ/Image (6).png" alt="Blog" class="main-blog-card-img">
-                <div class="main-blog-card-content">
-                    <div class="main-blog-card-date">Date: 2025-02-16</div>
-                    <div class="main-blog-card-title">How collaboration makes us better designers</div>
-                    <div class="main-blog-card-desc">Collaboration can make our teams stronger, and our individual designs better.</div>
-                    <div class="main-blog-card-category">
-                        <span class="main-category-badge main-category-blue">Work & Career</span>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="main-blog-card">
-                <img src="../PNJ/Image (7).png" alt="Blog" class="main-blog-card-img">
-                <div class="main-blog-card-content">
-                    <div class="main-blog-card-date">Date: 2025-02-15</div>
-                    <div class="main-blog-card-title">Our top 10 Javascript frameworks to use</div>
-                    <div class="main-blog-card-desc">JavaScript frameworks make development easy with extensive features and functionalities.</div>
-                    <div class="main-blog-card-category">
-                        <span class="main-category-badge main-category-blue">Work & Career</span>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="main-blog-card">
-                <img src="../PNJ/Image (8).png" alt="Blog" class="main-blog-card-img">
-                <div class="main-blog-card-content">
-                    <div class="main-blog-card-date">Date: 2025-02-05</div>
-                    <div class="main-blog-card-title">Podcast: Creating a better CX Community</div>
-                    <div class="main-blog-card-desc">Starting a community doesn't need to be complicated, but how do you get started?</div>
-                    <div class="main-blog-card-category">
-                        <span class="main-category-badge main-category-purple">Emotions & Feelings</span>
-                    </div>
-                </div>
-            </div> -->
         </div>
 
-        <div class="add-article-form" id="addArticleModal" style="display: none;">
-            <!-- CSS for this modal moved to home.css -->
-            <div class="add-article-backdrop"></div>
-            <div class="add-article-content">
-                <button class="add-article-close" id="closeAddArticle" title="Close">&times;</button>
-                <h2 class="add-article-title">📝 Add New Article</h2>
-                <form>
-                    <div class="add-article-form-group">
-                        <label class="add-article-label" for="articleTitle">Title:</label><br>
-                        <input type="text" id="articleTitle" class="add-article-input">
+        <!-- Add Article Modal -->
+        <div id="addArticleModal" class="add-article-backdrop">
+            <div class="add-article-modal">
+                <div class="add-article-header">
+                    <h2>📝 Add New Article</h2>
+                    <button id="closeAddArticle">&times;</button>
+                </div>
+                <form id="addArticleForm">
+                    <div class="form-group">
+                        <label for="title">Title:</label>
+                        <input type="text" id="title" name="title" required>
                     </div>
-                    <div class="add-article-form-group">
-                        <label class="add-article-label" for="articleCategories">Article Categories:</label><br>
-                        <input type="text" id="articleCategories" class="add-article-input add-article-input-bg">
+                    <div class="form-group">
+                        <label for="category">Article Categories:</label>
+                        <select id="category" name="category" required>
+                            <option value="">Select category...</option>
+                            <option value="Daily Journal">Daily Journal</option>
+                            <option value="Work & Career">Work & Career</option>
+                            <option value="Personal Thoughts">Personal Thoughts</option>
+                            <option value="Emotions & Feelings">Emotions & Feelings</option>
+                        </select>
                     </div>
-                    <div class="add-article-form-group">
-                        <label class="add-article-label">Mood:</label><br>
-                        <input type="text"  class="add-article-input add-article-input-bg">
-                    </div>
-                    <div class="add-article-form-group">
-                        <label class="add-article-label" for="articleContent">Content:</label><br>
-                        <textarea id="articleContent" rows="4" class="add-article-input"></textarea>
-                    </div>
-                    <div class="add-article-form-group" style="display: flex; flex-direction: row;">
-                        <label class="add-article-label">Status</label>
-                        <input type="radio" name="status" id="statusPublic" checked class="add-article-radio"> <label for="statusPublic">public</label>
-                        <input type="radio" name="status" id="statusPrivate" class="add-article-radio"> <label for="statusPrivate">private</label>
-                    </div>
-                    <div class="add-article-form-group">
-                        <div class="add-article-upload-box">
-                            <div class="add-article-upload-icon">&#8682;</div>
-                            <div>Browse and chose the files you want<br>to upload from your computer</div>
+                    <div class="form-group">
+                        <label>Mood:</label>
+                        <div class="mood-options">
+                            <label class="mood-label">
+                                <input type="radio" name="mood" value="Happy" checked>
+                                <span class="mood-icon">😊</span>
+                                <span>Happy</span>
+                            </label>
+                            <label class="mood-label">
+                                <input type="radio" name="mood" value="Sad">
+                                <span class="mood-icon">😢</span>
+                                <span>Sad</span>
+                            </label>
+                            <label class="mood-label">
+                                <input type="radio" name="mood" value="Excited">
+                                <span class="mood-icon">🤩</span>
+                                <span>Excited</span>
+                            </label>
                         </div>
                     </div>
-                    <button type="button" class="add-article-submit-btn">Add</button>
+                    <div class="form-group">
+                        <label for="content">Content:</label>
+                        <textarea id="content" name="content" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>Status:</label>
+                        <div class="status-options">
+                            <label class="status-label">
+                                <input type="radio" name="status" value="public" checked>
+                                <span>Public</span>
+                            </label>
+                            <label class="status-label">
+                                <input type="radio" name="status" value="private">
+                                <span>Private</span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-group file-upload">
+                        <label for="image" class="upload-label">
+                            <span class="upload-icon">📂</span>
+                            <span>Browse and choose the files you want<br>to upload from your computer</span>
+                        </label>
+                        <input type="text" id="image" name="image" required class="hidden-input">
+                    </div>
+                    <button type="submit" class="submit-btn">Add</button>
                 </form>
             </div>
         </div>
