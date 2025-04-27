@@ -1,6 +1,6 @@
 let articlesEl = document.getElementById("articleGrid");
 
-// Get articles from localStorage
+
 let articlesData = JSON.parse(localStorage.getItem('articles')) || [];
 
 function renderArticles(list = articlesData) {
@@ -23,29 +23,29 @@ function renderArticles(list = articlesData) {
     articlesEl.innerHTML = data.join('');
 }
 
-// Initial render
+
 renderArticles();
 
-// Add article functionality
+
 const addArticleBtn = document.querySelector('.main-add-article');
 const addArticleModal = document.getElementById('addArticleModal');
 const closeAddArticle = document.getElementById('closeAddArticle');
 
-// Show modal when clicking Add New Article
+
 if (addArticleBtn) {
     addArticleBtn.addEventListener('click', () => {
         addArticleModal.style.display = 'flex';
     });
 }
 
-// Close modal when clicking close button
+
 if (closeAddArticle) {
     closeAddArticle.addEventListener('click', () => {
         addArticleModal.style.display = 'none';
     });
 }
 
-// Close modal when clicking outside
+
 window.addEventListener('click', (e) => {
     if (e.target === addArticleModal) {
         addArticleModal.style.display = 'none';
@@ -71,19 +71,19 @@ if (addArticleForm) {
             entries: 0
         };
 
-        // Get existing articles or initialize empty array
+    
         const articles = JSON.parse(localStorage.getItem('articles')) || [];
         
-        // Add new article
-        articles.unshift(newArticle);
         
-        // Save back to localStorage
+        articles.unshift(newArticle);        // Save to localStorage
+        
+        
         localStorage.setItem('articles', JSON.stringify(articles));
         
-        // Update the display
+        
         renderArticles(articles.filter(article => article.status === 'public'));
         
-        // Close modal and reset form
+        
         addArticleModal.style.display = 'none';
         addArticleForm.reset();
     });
@@ -101,17 +101,14 @@ uploadLabel.addEventListener('click', function() {
     fileInput.onchange = function(e) {
         const file = e.target.files[0];
         if (file) {
-            // Normally you would upload to a server here
-            // For demo, we'll use a fake URL
             imageInput.value = URL.createObjectURL(file);
             uploadLabel.style.borderColor = '#22c55e';
         }
     };
-    
     fileInput.click();
 });
 
-// Handle dropdown menu
+
 const avatarBtn = document.getElementById('avatarBtn');
 const dropdownMenu = document.getElementById('dropdownMenu');
 
