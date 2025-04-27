@@ -1,5 +1,4 @@
 
-import {users} from '../../main.js';
 
 document.querySelector('.login-form').addEventListener('submit', function(e) {
     e.preventDefault();

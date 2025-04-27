@@ -1,88 +1,131 @@
-body {
+* {
     margin: 0;
-    font-family: Arial, sans-serif;
-    background: #fafafb;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
 }
 
-.header {
-    background: #fff;
-    height: 56px;
+body {
     display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    padding: 0 32px;
-    box-sizing: border-box;
-    border-bottom: 1px solid #f0f0f0;
+    background-color: #f8f9fa;
+    padding-top: 64px;
+}
+
+.top-header {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    height: 64px;
+    background: #fff;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    padding: 0 24px;
 }
 
 .header-right {
     display: flex;
     align-items: center;
+    justify-content: flex-end;
     height: 100%;
+    gap: 20px;
 }
 
-.icon-group {
+.notification-icon {
+    position: relative;
+    width: 40px;
+    height: 40px;
     display: flex;
     align-items: center;
-    gap: 24px;
+    justify-content: center;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    margin-left: 8px;
 }
 
-.icon-badge {
-    position: relative;
-    display: inline-block;
+.notification-icon:hover {
+    background-color: #f0f0f0;
 }
 
-.icon-badge .fa-envelope {
+.notification-icon i {
     font-size: 20px;
-    color: #444;
+    color: #64748B;
 }
 
-.icon-group .fa-bell {
-    font-size: 20px;
-    color: #444;
-}
-
-.badge {
+.notification-badge {
     position: absolute;
-    top: -6px;
-    right: -10px;
-    background: #5b6dfa;
-    color: #fff;
+    top: -2px;
+    right: -2px;
+    background: #2563EB;
+    color: white;
     font-size: 12px;
-    border-radius: 50%;
-    padding: 2px 6px;
-    min-width: 18px;
-    text-align: center;
-    font-weight: bold;
-    box-shadow: 0 0 0 2px #fff;
-}
-
-.avatar {
-    width: 32px;
-    height: 32px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 2px solid #e0e0e0;
-}
-
-.container {
+    min-width: 20px;
+    height: 20px;
+    border-radius: 10px;
     display: flex;
-    min-height: calc(100vh - 56px);
+    align-items: center;
+    justify-content: center;
+    padding: 0 6px;
+    border: 2px solid #fff;
+    font-weight: 500;
+}
+
+.user-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.user-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .sidebar {
-    width: 220px;
-    background: transparent;
-    padding: 48px 0 0 32px;
-    color: #b0b0b0;
-    font-size: 22px;
-    min-width: 180px;
+    width: 250px;
+    background-color: #fff;
+    height: 100vh;
+    padding: 20px;
+    position: fixed;
+    left: 0;
+    top: 64px;
+    z-index: 900; /* Đảm bảo sidebar nằm dưới top-header nhưng trên main-content */
 }
 
-.sidebar-item {
-    margin-bottom: 24px;
+.menu-item {
+    padding: 12px 15px;
+    margin: 8px 0;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background-color: #EBF5FF;
+    transition: all 0.2s ease;
 }
 
+.menu-item i {
+    font-size: 20px;
+    color: #FF6B00;
+    width: 24px;
+    text-align: center;
+}
+
+.menu-item span {
+    color: #0066FF;
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.menu-item:hover {
+    background-color: #E0EFFF;
+}
+
+/* Adjust main content to account for fixed sidebar */
 .main-content {
     flex: 1;
     background: #fafafb;
@@ -90,8 +133,9 @@ body {
     flex-direction: column;
     align-items: center;
     padding: 32px 0;
-    min-height: calc(100vh - 56px);
+    min-height: calc(100vh - 64px); /* Cập nhật để khớp với chiều cao top-header */
     position: relative;
+    margin-left: 250px; /* Thêm để dành chỗ cho sidebar */
 }
 
 .frame-label {
@@ -128,6 +172,7 @@ body {
     box-shadow: 0 2px 8px 0 rgba(91,109,250,0.08);
     transition: background 0.2s;
 }
+
 .add-btn:hover {
     background: #3d4fc3;
 }
@@ -184,10 +229,12 @@ body {
     font-weight: 600;
     color: #fff;
 }
+
 .status.public {
     background: #4ade80;
     color: #1e5631;
 }
+
 .status.private {
     background: #f87171;
     color: #7f1d1d;
@@ -212,77 +259,61 @@ body {
     margin-right: 8px;
     transition: background 0.2s;
 }
+
 .edit-btn {
     background: #4ade80;
     color: #fff;
 }
+
 .edit-btn:hover {
     background: #22c55e;
 }
+
 .delete-btn {
     background: #f87171;
     color: #fff;
     margin-right: 0;
 }
+
 .delete-btn:hover {
     background: #dc2626;
 }
 
 .pagination {
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    justify-content: center;
-    gap: 32px;
-    margin-top: 16px;
+    margin-top: 20px;
 }
 
-.pagination-btn {
+.prev-btn, .next-btn {
+    padding: 8px 16px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
     background: #fff;
-    border: 1px solid #e0e0e0;
-    border-radius: 20px;
-    padding: 6px 18px;
-    font-size: 15px;
-    color: #444;
     cursor: pointer;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    transition: background 0.2s, border 0.2s;
-}
-.pagination-btn:disabled {
-    color: #b0b0b0;
-    border-color: #f0f0f0;
-    cursor: not-allowed;
-    background: #fafafb;
-}
-.pagination-btn:hover:not(:disabled) {
-    background: #f0f4ff;
-    border-color: #5b6dfa;
+    font-size: 14px;
+    color: #666;
 }
 
-.pagination-pages {
+.prev-btn i, .next-btn i {
+    font-size: 12px;
+}
+
+.page-numbers {
     display: flex;
-    gap: 8px;
-    align-items: center;
+    gap: 5px;
 }
-.page {
-    display: inline-block;
-    min-width: 28px;
-    height: 28px;
-    line-height: 28px;
-    text-align: center;
-    border-radius: 50%;
-    font-size: 15px;
-    color: #444;
+
+.page-numbers span {
+    padding: 8px 12px;
+    border-radius: 6px;
     cursor: pointer;
-    transition: background 0.2s, color 0.2s;
+    color: #666;
+    font-size: 14px;
 }
-.page.active {
-    background: #5b6dfa;
+
+.page-numbers span.active {
+    background-color: #6c5ce7;
     color: #fff;
-    font-weight: bold;
-    cursor: default;
-}
-.page:hover:not(.active) {
-    background: #f0f4ff;
 }

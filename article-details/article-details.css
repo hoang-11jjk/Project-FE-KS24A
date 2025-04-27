@@ -5,12 +5,12 @@ body {
 }
 
 .article-details-container {
-    max-width: 1200px; /* tăng từ 900px lên 1200px */
+    max-width: 1200px;
     margin: 32px auto;
     background: #fff;
     border-radius: 18px;
     box-shadow: 0 4px 32px rgba(0,0,0,0.07);
-    padding: 48px 0 0 0; /* tăng padding trên */
+    padding: 48px 0 0 0;
     position: relative;
 }
 
@@ -34,7 +34,7 @@ body {
 }
 
 .article-details-main {
-    padding: 0 96px 48px 96px; /* tăng padding ngang và dưới */
+    padding: 0 96px 48px 96px;
 }
 
 .article-details-header {
@@ -71,6 +71,9 @@ body {
     font-size: 1.08rem;
     color: #222;
     margin-bottom: 18px;
+    max-height: 300px; /* Thêm chiều cao tối đa */
+    overflow-y: auto; /* Thêm scroll dọc */
+    line-height: 1.6; /* Cải thiện khoảng cách dòng */
 }
 
 .article-details-actions {

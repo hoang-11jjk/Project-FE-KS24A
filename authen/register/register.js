@@ -1,5 +1,4 @@
 
-import { users, updateData } from '../../main.js';
 
 document.querySelector('form').addEventListener('submit', function (e) {
     e.preventDefault();

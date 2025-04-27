@@ -2,110 +2,125 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Admin Article Manager</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Customer Manager</title>
     <link rel="stylesheet" href="admin-article-manager.css">
-    <script defer src="admin-article-manager.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-    <header class="header">
+    <div class="top-header">
         <div class="header-right">
-            <div class="icon-group">
-                <div class="icon-badge">
-                    <i class="fa-regular fa-envelope"></i>
-                    <span class="badge">2</span>
-                </div>
-                <i class="fa-regular fa-bell"></i>
-                <img src="https://i.pravatar.cc/32" alt="avatar" class="avatar">
+            <div class="notification-icon">
+                <i class="far fa-envelope"></i>
+                <span class="notification-badge">2</span>
+            </div>
+            <div class="notification-icon">
+                <i class="far fa-bell"></i>
+            </div>
+            <div class="user-avatar">
+                <img src="../../PNJ/avt.jpg" alt="User Profile">
             </div>
         </div>
-    </header>
-    <div class="container">
-        <aside class="sidebar">
-            <div class="sidebar-item">Sidenav item</div>
-        </aside>
-        <main class="main-content">
-            <div class="article-manager">
-                <button class="add-btn">Thêm mới bài viết</button>
-                <h2 class="title">Quản lý bài viết</h2>
-                <div class="table-wrapper">
-                    <table class="article-table">
-                        <thead>
-                            <tr>
-                                <th>Ảnh</th>
-                                <th>Tiêu đề</th>
-                                <th>Chủ đề</th>
-                                <th>Nội dung</th>
-                                <th>Trạng thái</th>
-                                <th>Chỉnh sửa trạng thái</th>
-                                <th>Hành động</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>
-                                    <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=facearea&w=64&h=40" class="thumb" alt="thumb">
-                                </td>
-                                <td>Học nấu cá sốt cà chua</td>
-                                <td>Nấu ăn</td>
-                                <td>tôi đã học được cách nấu ăn...</td>
-                                <td>
-                                    <span class="status public">Public</span>
-                                </td>
-                                <td>
-                                    <select>
-                                        <option>Public</option>
-                                        <option>Private</option>
-                                    </select>
-                                </td>
-                                <td>
-                                    <button class="edit-btn">Sửa</button>
-                                    <button class="delete-btn">Xóa</button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=facearea&w=64&h=40" class="thumb" alt="thumb">
-                                </td>
-                                <td>Bí kíp viết CV ngành IT</td>
-                                <td>IT</td>
-                                <td>Chia sẻ cách viết CV ấn tượng...</td>
-                                <td>
-                                    <span class="status private">Private</span>
-                                </td>
-                                <td>
-                                    <select>
-                                        <option>Public</option>
-                                        <option selected>Private</option>
-                                    </select>
-                                </td>
-                                <td>
-                                    <button class="edit-btn">Sửa</button>
-                                    <button class="delete-btn">Xóa</button>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-                <div class="pagination">
-                    <button class="pagination-btn" disabled>
-                        <i class="fa-solid fa-arrow-left"></i> Previous
-                    </button>
-                    <div class="pagination-pages">
-                        <span class="page active">1</span>
-                        <span class="page">2</span>
-                        <span class="page">3</span>
-                        <span class="page">...</span>
-                        <span class="page">8</span>
-                        <span class="page">9</span>
-                        <span class="page">10</span>
-                    </div>
-                    <button class="pagination-btn">
-                        Next <i class="fa-solid fa-arrow-right"></i>
-                    </button>
-                </div>
-            </div>
-        </main>
     </div>
+
+    <div class="sidebar">
+        <div class="menu-item">
+            <i class="fas fa-users"></i>
+            <span>Manage Users</span>
+        </div>
+        <div class="menu-item">
+            <i class="fas fa-table-list"></i>
+            <span>Manage Entries</span>
+        </div>
+        <div class="menu-item">
+            <i class="fas fa-book"></i>
+            <span>Manage Article</span>
+        </div>
+        <div class="menu-item">
+            <i class="fas fa-arrow-right-from-bracket"></i>
+            <span>Log out</span>
+        </div>
+    </div>
+
+    <main class="main-content">
+        <div class="article-manager">
+            <button class="add-btn">Thêm mới bài viết</button>
+            <h2 class="title">Quản lý bài viết</h2>
+            <div class="table-wrapper">
+                <table class="article-table">
+                    <thead>
+                        <tr>
+                            <th>Ảnh</th>
+                            <th>Tiêu đề</th>
+                            <th>Chủ đề</th>
+                            <th>Nội dung</th>
+                            <th>Trạng thái</th>
+                            <th>Chỉnh sửa trạng thái</th>
+                            <th>Hành động</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- <tr>
+                            <td>
+                                <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=facearea&w=64&h=40" class="thumb" alt="thumb">
+                            </td>
+                            <td>Học nấu cá sốt cà chua</td>
+                            <td>Nấu ăn</td>
+                            <td>tôi đã học được cách nấu ăn...</td>
+                            <td>
+                                <span class="status public">Public</span>
+                            </td>
+                            <td>
+                                <select>
+                                    <option>Public</option>
+                                    <option>Private</option>
+                                </select>
+                            </td>
+                            <td>
+                                <button class="edit-btn">Sửa</button>
+                                <button class="delete-btn">Xóa</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=facearea&w=64&h=40" class="thumb" alt="thumb">
+                            </td>
+                            <td>Bí kíp viết CV ngành IT</td>
+                            <td>IT</td>
+                            <td>Chia sẻ cách viết CV ấn tượng...</td>
+                            <td>
+                                <span class="status private">Private</span>
+                            </td>
+                            <td>
+                                <select>
+                                    <option>Public</option>
+                                    <option selected>Private</option>
+                                </select>
+                            </td>
+                            <td>
+                                <button class="edit-btn">Sửa</button>
+                                <button class="delete-btn">Xóa</button>
+                            </td>
+                        </tr> -->
+                    </tbody>
+                </table>
+            </div>
+
+        <div class="pagination">
+            <button class="prev-btn"><i class="fas fa-chevron-left"></i> Previous</button>
+            <div class="page-numbers">
+                <span class="active">1</span>
+                <span>2</span>
+                <span>3</span>
+                <span>...</span>
+                <span>8</span>
+                <span>9</span>
+                <span>10</span>
+            </div>
+            <button class="next-btn">Next <i class="fas fa-chevron-right"></i></button>
+        </div>
+    </div>
+
+    <script src="admin-article-manager.js"></script>
 </body>
 </html>
