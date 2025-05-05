@@ -9,12 +9,11 @@ function renderArticles(page = 1) {
     // Lọc bài viết công khai
     const publicArticles = articles.filter(article => article.status === 'public');
     
-    // Tính toán chỉ số bắt đầu và kết thúc của bài viết trên trang hiện tại
     const startIndex = (page - 1) * articlesPerPage;
     const endIndex = startIndex + articlesPerPage;
     const paginatedArticles = publicArticles.slice(startIndex, endIndex);
 
-    // Hiển thị bài viết
+    
     let data = paginatedArticles.map((article, index) => {
         // Tính chỉ số thực trong mảng articles gốc
         const globalIndex = articles.findIndex(a => a.title === article.title && a.content === article.content);
@@ -260,8 +259,14 @@ uploadLabel.addEventListener('click', function() {
     fileInput.onchange = function(e) {
         const file = e.target.files[0];
         if (file) {
-            imageInput.value = URL.createObjectURL(file);
-            uploadLabel.style.borderColor = '#22c55e';
+            // Chuyển đổi file thành Base64
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                const base64String = e.target.result;
+                imageInput.value = base64String;
+                uploadLabel.style.borderColor = '#22c55e';
+            };
+            reader.readAsDataURL(file);
         }
     };
     fileInput.click();
@@ -279,4 +284,4 @@ if (avatarBtn && dropdownMenu) {
             dropdownMenu.classList.remove('active');
         }
     });
-}
+};

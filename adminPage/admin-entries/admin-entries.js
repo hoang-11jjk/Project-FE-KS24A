@@ -1,12 +1,9 @@
-import { entries, updateEntries } from '../../main.js';
-
 document.addEventListener('DOMContentLoaded', function() {
     const categoryInput = document.querySelector('.category-input');
     const addButton = document.querySelector('.add-category-btn');
     const categoryTableBody = document.querySelector('.category-table tbody');
     let editingId = null;
 
-    // Hàm để sắp xếp lại ID
     function reorderIds() {
         entries.sort((a, b) => a.id - b.id);
         entries.forEach((entry, index) => {
@@ -95,3 +92,29 @@ document.addEventListener('DOMContentLoaded', function() {
     reorderIds();
     renderCategories();
 });
+
+const userSl = document.getElementById('customer-manager');
+if (userSl) {
+    userSl.addEventListener('click', function() {
+        window.location.href = '/adminPage/admin-customer-manager/index.html';
+    });
+}
+
+const articleSl = document.getElementById('article-manager');
+if (articleSl) {
+    articleSl.addEventListener('click', function() {
+        window.location.href = '/adminPage/admin-article-manager/index.html';
+    });
+}
+
+
+const logoutSl = document.getElementById('log-out');
+if (logoutSl) {
+    logoutSl.addEventListener('click', function() {
+        if (confirm('Bạn có chắc chắn muốn đăng xuất không?')) {
+            localStorage.removeItem('token');
+            localStorage.removeItem('user');
+            window.location.href = '/authen/login/index.html';
+        }
+    });
+}

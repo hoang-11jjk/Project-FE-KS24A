@@ -3,10 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Customer Manager</title>
+    <title>Admin Article Manager</title>
     <link rel="stylesheet" href="admin-article-manager.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
+
 <body>
     <div class="top-header">
         <div class="header-right">
@@ -24,19 +25,19 @@
     </div>
 
     <div class="sidebar">
-        <div class="menu-item">
+        <div class="menu-item" id="customer-manager">
             <i class="fas fa-users"></i>
             <span>Manage Users</span>
         </div>
-        <div class="menu-item">
+        <div class="menu-item" id="entries-manager">
             <i class="fas fa-table-list"></i>
             <span>Manage Entries</span>
         </div>
-        <div class="menu-item">
+        <div class="menu-item" id="article-manager"> 
             <i class="fas fa-book"></i>
             <span>Manage Article</span>
         </div>
-        <div class="menu-item">
+        <div class="menu-item" id="log-out">
             <i class="fas fa-arrow-right-from-bracket"></i>
             <span>Log out</span>
         </div>
@@ -60,67 +61,168 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <!-- <tr>
-                            <td>
-                                <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=facearea&w=64&h=40" class="thumb" alt="thumb">
-                            </td>
-                            <td>Học nấu cá sốt cà chua</td>
-                            <td>Nấu ăn</td>
-                            <td>tôi đã học được cách nấu ăn...</td>
-                            <td>
-                                <span class="status public">Public</span>
-                            </td>
-                            <td>
-                                <select>
-                                    <option>Public</option>
-                                    <option>Private</option>
-                                </select>
-                            </td>
-                            <td>
-                                <button class="edit-btn">Sửa</button>
-                                <button class="delete-btn">Xóa</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=facearea&w=64&h=40" class="thumb" alt="thumb">
-                            </td>
-                            <td>Bí kíp viết CV ngành IT</td>
-                            <td>IT</td>
-                            <td>Chia sẻ cách viết CV ấn tượng...</td>
-                            <td>
-                                <span class="status private">Private</span>
-                            </td>
-                            <td>
-                                <select>
-                                    <option>Public</option>
-                                    <option selected>Private</option>
-                                </select>
-                            </td>
-                            <td>
-                                <button class="edit-btn">Sửa</button>
-                                <button class="delete-btn">Xóa</button>
-                            </td>
-                        </tr> -->
                     </tbody>
                 </table>
             </div>
 
-        <div class="pagination">
-            <button class="prev-btn"><i class="fas fa-chevron-left"></i> Previous</button>
-            <div class="page-numbers">
-                <span class="active">1</span>
-                <span>2</span>
-                <span>3</span>
-                <span>...</span>
-                <span>8</span>
-                <span>9</span>
-                <span>10</span>
+            <!-- Add Article Modal -->
+            <div id="addArticleModal" class="add-article-backdrop">
+                <div class="add-article-modal">
+                    <div class="add-article-header">
+                        <h2>📝 Add New Article</h2>
+                        <button id="closeAddArticle">&times;</button>
+                    </div>
+                    <form id="addArticleForm">
+                        <div class="form-group">
+                            <label for="title">Title:</label>
+                            <input type="text" id="title" name="title" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="category">Article Categories:</label>
+                            <select id="category" name="category" required>
+                                <option value="">Select category...</option>
+                                <option value="Daily Journal">Daily Journal</option>
+                                <option value="Work & Career">Work & Career</option>
+                                <option value="Personal Thoughts">Personal Thoughts</option>
+                                <option value="Emotions & Feelings">Emotions & Feelings</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Mood:</label>
+                            <div class="mood-options">
+                                <label class="mood-label">
+                                    <input type="radio" name="mood" value="Happy" checked>
+                                    <span class="mood-icon">😊</span>
+                                    <span>Happy</span>
+                                </label>
+                                <label class="mood-label">
+                                    <input type="radio" name="mood" value="Sad">
+                                    <span class="mood-icon">😢</span>
+                                    <span>Sad</span>
+                                </label>
+                                <label class="mood-label">
+                                    <input type="radio" name="mood" value="Excited">
+                                    <span class="mood-icon">🤩</span>
+                                    <span>Excited</span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="content">Content:</label>
+                            <textarea id="content" name="content" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>Status:</label>
+                            <div class="status-options">
+                                <label class="status-label">
+                                    <input type="radio" name="status" value="public" checked>
+                                    <span>Public</span>
+                                </label>
+                                <label class="status-label">
+                                    <input type="radio" name="status" value="private">
+                                    <span>Private</span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-group file-upload">
+                            <label for="image" class="upload-label">
+                                <span class="upload-icon">📂</span>
+                                <span>Browse and choose the files you want<br>to upload from your computer</span>
+                            </label>
+                            <input type="text" id="image" name="image" required class="hidden-input">
+                        </div>
+                        <button type="submit" class="submit-btn">Add</button>
+                    </form>
+                </div>
             </div>
-            <button class="next-btn">Next <i class="fas fa-chevron-right"></i></button>
-        </div>
-    </div>
 
-    <script src="admin-article-manager.js"></script>
+            <!-- Edit Article Modal -->
+            <div id="editArticleModal" class="add-article-backdrop">
+                <div class="add-article-modal">
+                    <div class="add-article-header">
+                        <h2>✏️ Edit Article</h2>
+                        <button id="closeEditArticle">&times;</button>
+                    </div>
+                    <form id="editArticleForm">
+                        <input type="hidden" id="editIndex" name="editIndex">
+                        <div class="form-group">
+                            <label for="editTitle">Title:</label>
+                            <input type="text" id="editTitle" name="title" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="editCategory">Article Categories:</label>
+                            <select id="editCategory" name="category" required>
+                                <option value="">Select category...</option>
+                                <option value="Daily Journal">Daily Journal</option>
+                                <option value="Work & Career">Work & Career</option>
+                                <option value="Personal Thoughts">Personal Thoughts</option>
+                                <option value="Emotions & Feelings">Emotions & Feelings</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Mood:</label>
+                            <div class="mood-options">
+                                <label class="mood-label">
+                                    <input type="radio" name="mood" value="Happy">
+                                    <span class="mood-icon">😊</span>
+                                    <span>Happy</span>
+                                </label>
+                                <label class="mood-label">
+                                    <input type="radio" name="mood" value="Sad">
+                                    <span class="mood-icon">😢</span>
+                                    <span>Sad</span>
+                                </label>
+                                <label class="mood-label">
+                                    <input type="radio" name="mood" value="Excited">
+                                    <span class="mood-icon">🤩</span>
+                                    <span>Excited</span>
+                                </label>
+                            </div>
+                        </div>
+                          <div class="form-group">
+                            <label for="editContent">Content:</label>
+                            <textarea id="editContent" name="content" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>Status:</label>
+                            <div class="status-options">
+                                <label class="status-label">
+                                    <input type="radio" name="status" value="public">
+                                    <span>Public</span>
+                                </label>
+                                <label class="status-label">
+                                    <input type="radio" name="status" value="private">
+                                    <span>Private</span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-group file-upload">
+                            <label for="editImage" class="upload-label">
+                                <span class="upload-icon">📂</span>
+                                <span>Browse and choose the files you want<br>to upload from your computer</span>
+                            </label>
+                            <input type="text" id="editImage" name="image" required class="hidden-input">
+                        </div>
+                        <button type="submit" class="submit-btn">Update</button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="pagination">
+                <button class="prev-btn"><i class="fas fa-chevron-left"></i> Previous</button>
+                <div class="page-numbers">
+                    <span class="active">1</span>
+                    <span>2</span>
+                    <span>3</span>
+                    <span>...</span>
+                    <span>8</span>
+                    <span>9</span>
+                    <span>10</span>
+                </div>
+                <button class="next-btn">Next <i class="fas fa-chevron-right"></i></button>
+            </div>
+        </div>
+        <script src="/main.js"></script>
+        <script src="admin-article-manager.js"></script>
 </body>
 </html>

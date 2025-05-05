@@ -24,19 +24,19 @@
     </div>
 
     <div class="sidebar">
-        <div class="menu-item">
+        <div class="menu-item" id="customer-manager">
             <i class="fas fa-users"></i>
             <span>Manage Users</span>
         </div>
-        <div class="menu-item">
+        <div class="menu-item" id="entries-manager">
             <i class="fas fa-table-list"></i>
             <span>Manage Entries</span>
         </div>
-        <div class="menu-item">
+        <div class="menu-item" id="article-manager"> 
             <i class="fas fa-book"></i>
             <span>Manage Article</span>
         </div>
-        <div class="menu-item">
+        <div class="menu-item" id="log-out">
             <i class="fas fa-arrow-right-from-bracket"></i>
             <span>Log out</span>
         </div>
@@ -46,30 +46,24 @@
         <div class="header">
             <div class="title">
                 <h2>Team members</h2>
-                <span class="user-count">100 users</span>
+                <span class="user-count">0 users</span>
             </div>
             <div class="search-container">
                 <i class="fas fa-search"></i>
                 <input type="text" placeholder="Search user">
             </div>
         </div>
-
         <div class="table-container">
             <table>
                 <thead>
                     <tr>
                         <th>Name</th>
-                        <th>Status <i class="fas fa-sort-down"></i></th>
+                        <th>Status</th>
                         <th>Email address</th>
-                        <th>
-                            <span>active</span>
-                            <span class="sort-text">sort by name</span>
-                            <i class="fas fa-sort"></i>
-                        </th>
+                        <th>Actions</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <!-- User rows will be populated dynamically -->
                 </tbody>
             </table>
         </div>
@@ -78,17 +72,11 @@
             <button class="prev-btn"><i class="fas fa-chevron-left"></i> Previous</button>
             <div class="page-numbers">
                 <span class="active">1</span>
-                <span>2</span>
-                <span>3</span>
-                <span>...</span>
-                <span>8</span>
-                <span>9</span>
-                <span>10</span>
             </div>
             <button class="next-btn">Next <i class="fas fa-chevron-right"></i></button>
         </div>
     </div>
-
+    <script src="/main.js"></script>
     <script src="admin-customer-manager.js"></script>
 </body>
 </html>
