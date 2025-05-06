@@ -14,8 +14,8 @@
             <span class="site-title">RIKKEI_EDU_BLOG</span>
         </div>
         <div class="header-center">
-            <input type="text" class="search-input" placeholder="Search for articles">
-            <button class="search-btn"><span>&#128269;</span></button>
+            <input type="text" class="search-input" id="searchInput" placeholder="Search for articles">
+            <button class="search-btn" id="searchBtn"><span>&#128269;</span></button>
         </div>
         <div class="header-right">
             <img src="../PNJ/avt.jpg" alt="Avatar" class="avatar" id="avatarBtn">
@@ -90,11 +90,11 @@
 
         <!-- Blog categories -->
         <div class="main-categories">
-            <span class="main-category-selected">All blog posts</span>
-            <span class="main-category">Daily Journal</span>
-            <span class="main-category">Work & Career</span>
-            <span class="main-category">Personal Thoughts</span>
-            <span class="main-category">Emotions & Feelings</span>
+            <span class="main-category" onclick="filterByCategory('all')">All blog posts</span>
+            <span class="main-category" onclick="filterByCategory('Daily Journal')">Daily Journal</span>
+            <span class="main-category" onclick="filterByCategory('Work & Career')">Work & Career</span>
+            <span class="main-category" onclick="filterByCategory('Personal Thoughts')">Personal Thoughts</span>
+            <span class="main-category" onclick="filterByCategory('Emotions & Feelings')">Emotions & Feelings</span>
         </div>
 
         <!-- Blog post grid -->z

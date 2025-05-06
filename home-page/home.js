@@ -5,34 +5,84 @@ const paginationEl = document.querySelector('.main-pagination');
 const articlesPerPage = 6; // Số bài viết mỗi trang
 let currentPage = 1; // Trang hiện tại
 
+// Thêm biến để lưu category đang được chọn
+let currentCategory = 'all';
+
+// Thêm biến để lưu từ khóa tìm kiếm
+let searchKeyword = '';
+
+// Thêm sự kiện cho input tìm kiếm
+const searchInput = document.getElementById('searchInput');
+const searchBtn = document.getElementById('searchBtn');
+
+// Xử lý tìm kiếm khi nhấn nút
+searchBtn.addEventListener('click', () => {
+    searchKeyword = searchInput.value.trim().toLowerCase();
+    currentPage = 1; // Reset về trang 1
+    renderArticles(currentPage);
+});
+
+// Xử lý tìm kiếm khi nhấn Enter
+searchInput.addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') {
+        searchKeyword = searchInput.value.trim().toLowerCase();
+        currentPage = 1; // Reset về trang 1
+        renderArticles(currentPage);
+    }
+});
+
 function renderArticles(page = 1) {
     // Lọc bài viết công khai
-    const publicArticles = articles.filter(article => article.status === 'public');
+    let publicArticles = articles.filter(article => article.status === 'public');
+    
+    // Lọc theo category nếu không phải 'all'
+    if (currentCategory !== 'all') {
+        publicArticles = publicArticles.filter(article => 
+            article.category === currentCategory
+        );
+    }
+
+    // Lọc theo từ khóa tìm kiếm
+    if (searchKeyword) {
+        publicArticles = publicArticles.filter(article => 
+            article.title.toLowerCase().includes(searchKeyword) || 
+            article.content.toLowerCase().includes(searchKeyword) ||
+            article.category.toLowerCase().includes(searchKeyword)
+        );
+    }
     
     const startIndex = (page - 1) * articlesPerPage;
     const endIndex = startIndex + articlesPerPage;
     const paginatedArticles = publicArticles.slice(startIndex, endIndex);
 
-    
-    let data = paginatedArticles.map((article, index) => {
-        // Tính chỉ số thực trong mảng articles gốc
-        const globalIndex = articles.findIndex(a => a.title === article.title && a.content === article.content);
-        return `
-            <div class="main-blog-card" onclick="viewArticleDetails(${globalIndex})">
-                <img src="${article.image}" alt="${article.title}" class="main-blog-card-img">
-                <div class="main-blog-card-content">
-                    <div class="main-blog-card-date">Date: ${article.date}</div>
-                    <div class="main-blog-card-title">${article.title}</div>
-                    <div class="main-blog-card-desc">${article.content}</div>
-                    <div class="main-blog-card-category">
-                        <span class="main-category-badge main-category-${article.categoryColor}">${article.category}</span>
-                    </div>
-                </div>
+    // Hiển thị thông báo không tìm thấy kết quả
+    if (publicArticles.length === 0) {
+        articlesEl.innerHTML = `
+            <div class="no-results">
+                <p>No articles found${searchKeyword ? ` for "${searchKeyword}"` : ''}</p>
             </div>
         `;
-    });
+    } else {
+        let data = paginatedArticles.map((article, index) => {
+            // Tính chỉ số thực trong mảng articles gốc
+            const globalIndex = articles.findIndex(a => a.title === article.title && a.content === article.content);
+            return `
+                <div class="main-blog-card" onclick="viewArticleDetails(${globalIndex})">
+                    <img src="${article.image}" alt="${article.title}" class="main-blog-card-img">
+                    <div class="main-blog-card-content">
+                        <div class="main-blog-card-date">Date: ${article.date}</div>
+                        <div class="main-blog-card-title">${article.title}</div>
+                        <div class="main-blog-card-desc">${article.content}</div>
+                        <div class="main-blog-card-category">
+                            <span class="main-category-badge main-category-${article.categoryColor}">${article.category}</span>
+                        </div>
+                    </div>
+                </div>
+            `;
+        });
 
-    articlesEl.innerHTML = data.join('');
+        articlesEl.innerHTML = data.join('');
+    }
 
     // Cập nhật phân trang
     renderPagination(publicArticles.length);
@@ -285,3 +335,30 @@ if (avatarBtn && dropdownMenu) {
         }
     });
 };
+
+// Hàm lọc bài viết theo category
+function filterByCategory(category) {
+    currentCategory = category;
+    currentPage = 1; // Reset về trang 1 khi chuyển category
+    
+    // Cập nhật giao diện các nút category
+    const categorySpans = document.querySelectorAll('.main-categories span');
+    categorySpans.forEach(span => {
+        if (span.textContent.includes(category) || 
+           (category === 'all' && span.textContent === 'All blog posts')) {
+            span.className = 'main-category-selected';
+        } else {
+            span.className = 'main-category';
+        }
+    });
+
+    renderArticles(currentPage);
+}
+
+// Thêm hàm reset tìm kiếm
+function resetSearch() {
+    searchInput.value = '';
+    searchKeyword = '';
+    currentPage = 1;
+    renderArticles(currentPage);
+}

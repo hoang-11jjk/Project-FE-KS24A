@@ -185,7 +185,6 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    min-height: 100vh;
     background-color: rgba(0, 0, 0, 0.5);
     justify-content: center;
     align-items: center;
@@ -195,9 +194,11 @@ body {
 .add-article-modal {
     background-color: white;
     padding: 24px;
-    border-radius: 8px;
+    border-radius: 12px;
     width: 90%;
-    max-width: 500px;
+    max-width: 3000px;
+    min-height: 700px; /* Added min-height */
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.1);
 }
 
 .add-article-header {
@@ -208,12 +209,13 @@ body {
 }
 
 .add-article-header h2 {
-    font-size: 20px;
-    font-weight: 600;
-    margin: 0;
     display: flex;
     align-items: center;
     gap: 8px;
+    color: #1F2A44;
+    font-family: Inter, sans-serif;
+    font-size: 20px;
+    font-weight: 600;
 }
 
 .add-article-header button {
@@ -221,54 +223,65 @@ body {
     border: none;
     font-size: 24px;
     cursor: pointer;
-    color: #666;
+    color: #6B7280;
+    transition: color 0.2s;
+}
+
+.add-article-header button:hover {
+    color: #374151;
 }
 
 .form-group {
-    margin-bottom: 20px;
+    margin-bottom: 24px; /* Increased from 20px */
 }
 
 .form-group label {
+    color: #1F2A44;
+    font-family: Inter, sans-serif;
+    font-size: 14px;
+    font-weight: 500;
     display: block;
     margin-bottom: 8px;
-    font-weight: 500;
-    color: #333;
 }
 
 .form-group input[type="text"],
 .form-group textarea,
 .form-group select {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ddd;
+    width: 95%;
+    padding: 10px 14px;
+    border: 1px solid #E5E7EB;
     border-radius: 6px;
+    font-family: Inter, sans-serif;
     font-size: 14px;
+    background: #F9FAFB;
+    color: #1F2A44;
+    outline: none;
+    transition: border-color 0.2s;
 }
 
-.form-group select {
-    appearance: none;
-    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
-    background-repeat: no-repeat;
-    background-position: right 10px center;
-    background-size: 16px;
-    padding-right: 40px;
+.form-group input[type="text"]:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+    border-color: #6366F1;
+    box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.1);
 }
 
 .form-group textarea {
-    height: 120px;
+    height: 200px; /* Increased from 100px */
     resize: vertical;
 }
 
+/* Mood options styling */
 .mood-options {
     display: flex;
-    gap: 20px;
+    gap: 16px;
     margin-top: 8px;
 }
 
 .mood-label {
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 6px;
     cursor: pointer;
 }
 
@@ -277,7 +290,7 @@ body {
 }
 
 .mood-icon {
-    font-size: 24px;
+    font-size: 20px;
     opacity: 0.5;
     transition: opacity 0.2s;
 }
@@ -287,48 +300,66 @@ body {
 }
 
 .mood-label span:last-child {
+    font-family: Inter, sans-serif;
     font-size: 14px;
+    color: #1F2A44;
 }
 
+/* Status options styling */
 .status-options {
     display: flex;
-    gap: 20px;
+    gap: 16px;
     margin-top: 8px;
 }
 
 .status-label {
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 6px;
     cursor: pointer;
+    font-family: Inter, sans-serif;
+    font-size: 14px;
+    color: #1F2A44;
 }
 
 .status-label input[type="radio"] {
     width: 16px;
     height: 16px;
+    margin: 0;
+    accent-color: #22C55E;
 }
 
+/* File upload styling */
 .file-upload {
     margin-top: 16px;
 }
 
 .upload-label {
+    width: 25%;
     display: flex;
     align-items: center;
-    gap: 12px;
+    justify-content: center;
+    flex-direction: column;
     padding: 16px;
-    border: 2px dashed #ddd;
-    border-radius: 8px;
+    gap: 8px;
+    border: 1px dashed #D1D5DB;
+    border-radius: 6px;
     cursor: pointer;
     transition: border-color 0.2s;
+    text-align: center;
+    color: #6B7280;
+    font-family: Inter, sans-serif;
+    font-size: 14px;
+    background: #F9FAFB;
 }
 
 .upload-label:hover {
-    border-color: #aaa;
+    border-color: #9CA3AF;
 }
 
 .upload-icon {
-    font-size: 24px;
+    font-size: 20px;
+    color: #6B7280;
 }
 
 .hidden-input {
@@ -336,21 +367,24 @@ body {
     position: absolute;
 }
 
+/* Submit button styling */
 .submit-btn {
-    background-color: #22c55e;
-    color: white;
+    width: 5%;
     padding: 12px;
+    background: #22C55E;
     border: none;
     border-radius: 6px;
-    cursor: pointer;
-    width: 100%;
+    color: white;
+    font-family: Inter, sans-serif;
     font-size: 16px;
-    font-weight: 500;
-    transition: background-color 0.2s;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 32px; /* Increased from 20px */
+    transition: background 0.2s;
 }
 
 .submit-btn:hover {
-    background-color: #16a34a;
+    background: #16A34A;
 }
 
 .title {
